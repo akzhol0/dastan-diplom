@@ -1,15 +1,18 @@
-import { useState } from "react";
+import {useState} from "react";
+import {Link} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ techRef, importantRef, keysRef, moreRef, typesRef }) => {
+const Header = ({techRef, importantRef, keysRef, moreRef, typesRef, examplesRef}) => {
   const [burger, setBurger] = useState(false);
 
   return (
     <div className="sticky top-0 w-full h-[70px] flex justify-center items-center bg-[#FBFBFD] border-b z-50">
       <div className="w-[1600px] relative px-4 md:px-8 flex justify-between">
-        <p className="brand text-[40px] font-bold text-[#2b2b2b] cursor-pointer">
-          Dastan
-        </p>
+        <Link to="/">
+          <p className="brand text-[40px] font-bold text-[#2b2b2b] cursor-pointer">
+            Dastan
+          </p>
+        </Link>
         <ul className="hidden lg:flex items-center justify-between lg:gap-6 z-60 text-lg whitespace-nowrap">
           <li className="cursor-pointer border-b border-white hover:border-black duration-200">
             <button
@@ -62,6 +65,21 @@ const Header = ({ techRef, importantRef, keysRef, moreRef, typesRef }) => {
               Виды аудита
             </button>
           </li>
+          <li
+            onClick={() => setBurger(false)}
+            className="cursor-pointer border-b border-white hover:border-black duration-200"
+          >
+            <button
+              onClick={() => {
+                // eslint-disable-next-line react/prop-types
+                examplesRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Примеры аудита
+            </button>
+          </li>
           <button
             onClick={() => {
               // eslint-disable-next-line react/prop-types
@@ -86,7 +104,8 @@ const Header = ({ techRef, importantRef, keysRef, moreRef, typesRef }) => {
         </div>
         {burger && (
           <div className="lg:hidden absolute top-[65px] left-0 w-full min-h-[10px] bg-white">
-            <ul className="flex flex-col lg:hidden py-4 items-center justify-center gap-4 sm:gap-8 text-xl border-b border-black whitespace-nowrap">
+            <ul
+              className="flex flex-col lg:hidden py-4 items-center justify-center gap-4 sm:gap-8 text-xl border-b border-black whitespace-nowrap">
               <li
                 onClick={() => setBurger(false)}
                 className="cursor-pointer border-b border-white hover:border-black duration-200"
@@ -145,6 +164,21 @@ const Header = ({ techRef, importantRef, keysRef, moreRef, typesRef }) => {
                   }}
                 >
                   Виды аудита
+                </button>
+              </li>
+              <li
+                onClick={() => setBurger(false)}
+                className="cursor-pointer border-b border-white hover:border-black duration-200"
+              >
+                <button
+                  onClick={() => {
+                    // eslint-disable-next-line react/prop-types
+                    examplesRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Примеры аудита
                 </button>
               </li>
               <button

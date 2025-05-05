@@ -5,16 +5,12 @@ import Parallax from "./components/parallax/Parallax.jsx";
 import Aspects from "./components/aspects/Aspects.jsx";
 import Technologies from "./components/tech/Technologies.jsx";
 import Etaps from "./components/etaps/Etaps.jsx";
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useState} from "react";
 import TypesMain from "./components/typesMain/TypesMain.jsx";
+import Examples from "./components/examples/Examples.jsx";
 
-function App() {
-  const techRef = useRef(null);
-  const importantRef = useRef(null);
-  const keysRef = useRef(null);
-  const moreRef = useRef(null);
-  const typesRef = useRef(null);
-
+// eslint-disable-next-line react/prop-types
+function App({techRef, importantRef, keysRef, moreRef, typesRef, examplesRef}) {
   const [gg, setgg] = useState(false);
 
   const toggleVisibility = () => {
@@ -34,15 +30,8 @@ function App() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <Header
-        moreRef={moreRef}
-        keysRef={keysRef}
-        importantRef={importantRef}
-        techRef={techRef}
-        typesRef={typesRef}
-      />
       <div className="w-full flex flex-col justify-start items-center z-10">
-        <Parallax />
+        <Parallax/>
         <p className="py-6" ref={importantRef}></p>
         <div
           id="important"
@@ -52,7 +41,7 @@ function App() {
             Важность аудита
           </h1>
           <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
-            <Aspects />
+            <Aspects/>
           </div>
         </div>
         <p className="py-6" ref={techRef}></p>
@@ -62,18 +51,7 @@ function App() {
               Использованные технологий
             </h1>
             <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
-              <Technologies />
-            </div>
-          </div>
-        </div>
-        <p className="py-6" ref={typesRef}></p>
-        <div className="w-full flex justify-center">
-          <div className="w-full md:w-[80%] px-4 md:px-0 ">
-            <h1 className="text-[26px] my-8 lg:my-16 font-bold text-[#000]">
-              Виды аудита в информационной безоспасноти
-            </h1>
-            <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
-              <TypesMain />
+              <Technologies/>
             </div>
           </div>
         </div>
@@ -83,10 +61,33 @@ function App() {
             <p className="text-[30px] my-8 lg:my-16 font-bold text-[#000]">
               Ключевые этапы аудита
             </p>
-            <Etaps />
+            <Etaps/>
           </div>
         </div>
-        <div className="w-full h-[200px] bg-[#1b1b1b] flex justify-center items-center text-white text-lg md:text-2xl text-center font-semibold">
+        <p className="py-6" ref={typesRef}></p>
+        <div className="w-full flex justify-center">
+          <div className="w-full md:w-[80%] px-4 md:px-0 ">
+            <h1 className="text-[26px] my-8 lg:my-16 font-bold text-[#000]">
+              Виды аудита в информационной безоспасноти
+            </h1>
+            <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
+              <TypesMain/>
+            </div>
+          </div>
+        </div>
+        <p className="py-6" ref={examplesRef}></p>
+        <div className="w-full flex justify-center mb-[100px]">
+          <div className="w-full md:w-[80%] px-4 md:px-0 ">
+            <h1 className="text-[26px] my-8 lg:my-16 font-bold text-[#000]">
+              Примеры аудита в информационной безоспасноти
+            </h1>
+            <div className="flex flex-col gap-8 lg:flex-row justify-between my-8">
+              <Examples/>
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-full h-[200px] bg-[#1b1b1b] flex justify-center items-center text-white text-lg md:text-2xl text-center font-semibold">
           <p>Аудит — это инструмент развития и защиты компании.</p>
         </div>
         <p className="py-8" ref={moreRef}></p>
@@ -136,7 +137,6 @@ function App() {
           <p className="text-[40px]">↑</p>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

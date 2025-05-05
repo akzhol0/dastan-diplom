@@ -34,9 +34,6 @@ const Technologies = () => {
 
   return (
     <div className={"flex flex-col gap-8 lg:flex-row justify-between"}>
-      <p className="min-w-[300px] max-h-[50px] border-l-2 border-red-600 ps-4 py-2 text-xl">
-        Front-end
-      </p>
       <div className="max-w-[1000px] grid grid-cols-2 gap-y-8 gap-x-4 place-content-center">
         {technologies.map((item) => (
           <div
@@ -52,6 +49,9 @@ const Technologies = () => {
           </div>
         ))}
       </div>
+      <p className="min-w-[300px] max-h-[50px] border-l-2 border-red-600 ps-4 py-2 text-xl">
+        Front-end
+      </p>
     </div>
   );
 };
