@@ -43,7 +43,7 @@ const FileScanResult = ({file}) => {
       });
 
       setLoading(false);
-    }, 2000);
+    }, 5000);
   }, [file]);
 
   if (!file) {
